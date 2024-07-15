@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "bTUcpiFYnT1FhkoQGO93I8om2EvdR5tcgwjPiFVGnu0=",
+  "Source": "CSharp_ApiWithMoq",
+  "BasePath": "_content/CSharp_ApiWithMoq",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
