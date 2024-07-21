@@ -3,6 +3,8 @@ using CSharp_ApiWithMoq.Src.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using Serilog;
+using CSharp_ApiWithMoq.Data.Interface;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Api.Controllers.V1
 {
@@ -10,11 +12,11 @@ namespace Api.Controllers.V1
     [ApiController]
     public class FeriadoController : ControllerBase
     {
-        private readonly FeriadosService _Feriadoervice;
+        private readonly IFeriadoRepository _feriadoRepository;
 
-        public FeriadoController(FeriadosService Feriadoervice)
+        public FeriadoController(IFeriadoRepository feriadoRepository)
         {
-            _Feriadoervice = Feriadoervice;
+            _feriadoRepository = feriadoRepository;
         }
 
         /// <summary>
@@ -22,11 +24,12 @@ namespace Api.Controllers.V1
         /// </summary>
         [HttpGet]
         [ProducesResponseType((int)HttpStatusCode.OK)]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<Feriados>>> GetAllFeriados()
         {
             try
             {
-                var Feriado = await _Feriadoervice.GetAllFeriados();
+                var Feriado = await _feriadoRepository.GetAllFeriados();
                 return Ok(Feriado);
             }
             catch (Exception ex)
@@ -42,11 +45,13 @@ namespace Api.Controllers.V1
         [HttpGet("{id}", Name = "GetFeriadoById")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [AllowAnonymous]
+
         public async Task<ActionResult<Feriados>> GetFeriadoById(int id)
         {
             try
             {
-                var Feriado = await _Feriadoervice.GetFeriadoById(id);
+                var Feriado = await _feriadoRepository.GetFeriadoById(id);
                 if (Feriado == null)
                 {
                     return NotFound();
@@ -66,6 +71,8 @@ namespace Api.Controllers.V1
         [HttpPost]
         [ProducesResponseType((int)HttpStatusCode.Created)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [AllowAnonymous]
+
         public async Task<ActionResult<Feriados>> AddFeriado([FromBody] Feriados Feriado)
         {
             if (Feriado == null || string.IsNullOrEmpty(Feriado.Name))
@@ -75,7 +82,7 @@ namespace Api.Controllers.V1
 
             try
             {
-                await _Feriadoervice.AddFeriado(Feriado);
+                await _feriadoRepository.AddFeriado(Feriado);
                 return CreatedAtRoute("GetFeriadoById", new { id = Feriado.Id }, Feriado);
             }
             catch (Exception ex)
@@ -92,6 +99,8 @@ namespace Api.Controllers.V1
         [ProducesResponseType((int)HttpStatusCode.NoContent)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [AllowAnonymous]
+
         public async Task<ActionResult> UpdateFeriado(int id, [FromBody] Feriados Feriado)
         {
             if (id != Feriado.Id)
@@ -101,13 +110,13 @@ namespace Api.Controllers.V1
 
             try
             {
-                var existingFeriado = await _Feriadoervice.GetFeriadoById(id);
+                var existingFeriado = await _feriadoRepository.GetFeriadoById(id);
                 if (existingFeriado == null)
                 {
                     return NotFound();
                 }
 
-                await _Feriadoervice.UpdateFeriado(Feriado);
+                await _feriadoRepository.UpdateFeriado(Feriado);
                 return NoContent();
             }
             catch (Exception ex)
@@ -124,17 +133,18 @@ namespace Api.Controllers.V1
         [HttpDelete("{id}")]
         [ProducesResponseType((int)HttpStatusCode.NoContent)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [AllowAnonymous]
         public async Task<ActionResult> DeleteFeriado(int id)
         {
             try
             {
-                var existingFeriado = await _Feriadoervice.GetFeriadoById(id);
+                var existingFeriado = await _feriadoRepository.GetFeriadoById(id);
                 if (existingFeriado == null)
                 {
                     return NotFound();
                 }
 
-                await _Feriadoervice.DeleteFeriado(id);
+                await _feriadoRepository.DeleteFeriado(id);
                 return NoContent();
             }
             catch (Exception ex)

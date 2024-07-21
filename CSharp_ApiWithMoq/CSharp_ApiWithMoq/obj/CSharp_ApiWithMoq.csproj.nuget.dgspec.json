@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Neemias2\\Desktop\\PESSOAL\\CODIGOS\\APIMOCK\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq.csproj": {}
+    "C:\\Users\\ifspn\\OneDrive\\Desktop\\APPS\\API\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Neemias2\\Desktop\\PESSOAL\\CODIGOS\\APIMOCK\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq.csproj": {
+    "C:\\Users\\ifspn\\OneDrive\\Desktop\\APPS\\API\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Neemias2\\Desktop\\PESSOAL\\CODIGOS\\APIMOCK\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq.csproj",
+        "projectUniqueName": "C:\\Users\\ifspn\\OneDrive\\Desktop\\APPS\\API\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq.csproj",
         "projectName": "CSharp_ApiWithMoq",
-        "projectPath": "C:\\Users\\Neemias2\\Desktop\\PESSOAL\\CODIGOS\\APIMOCK\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq.csproj",
-        "packagesPath": "C:\\Users\\Neemias2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Neemias2\\Desktop\\PESSOAL\\CODIGOS\\APIMOCK\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq\\obj\\",
+        "projectPath": "C:\\Users\\ifspn\\OneDrive\\Desktop\\APPS\\API\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq.csproj",
+        "packagesPath": "C:\\Users\\ifspn\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ifspn\\OneDrive\\Desktop\\APPS\\API\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq\\CSharp_ApiWithMoq\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Neemias2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ifspn\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,15 +38,28 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.20, )"
+            },
             "Microsoft.AspNetCore.Mvc.Versioning": {
               "target": "Package",
               "version": "[5.1.0, )"
+            },
+            "Microsoft.Extensions.Caching.StackExchangeRedis": {
+              "target": "Package",
+              "version": "[7.0.20, )"
             },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
@@ -109,6 +121,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.18, 7.0.18]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[7.0.18, 7.0.18]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.18, 7.0.18]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.18, 7.0.18]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -117,7 +147,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     }

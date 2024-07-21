@@ -9,10 +9,6 @@ namespace Data.Tests
     {
         private readonly IFeriadoRepository _repository;
 
-        public FeriadosRepositoryTests()
-        {
-            _repository = new FeriadosRepository();
-        }
 
         [Fact]
         public async Task GetAllFeriados_ReturnsAllFeriados()
